@@ -1,0 +1,19 @@
+{
+    "name": "revenue",
+    "devices": [
+        {
+            "name": "Tablet",
+            "value": 120000
+        },
+        {
+            "name": "Smartphone",
+            "value": 80000
+        }
+    ],
+    "historicData": [
+        {
+            "value": 20000,
+            "date": "2016-05-01"
+        }
+    ]
+}
