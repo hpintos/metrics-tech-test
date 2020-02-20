@@ -1,23 +1,50 @@
-.mrf-metric-container {
-  margin: 20px;
-  max-width: 300px;
-  border-bottom: 1.5px solid lightgray;
+* {
+  font-family: Arial;
+}
+.metrics-content {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  justify-items: center;
 }
 
-.mrf-device:first-of-type {
+.metric-container {
+  display: grid;
+  justify-content: center;
+  border-bottom: 1.5px solid lightgray;
+  transition: ease all 1s;
+}
+
+.metric-footer {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.metric-footer-col-left {
   text-align: left;
 }
 
-.mrf-device:last-of-type {
+.metric-footer-col-right {
   text-align: right;
 }
 
+.metric-header {
+  text-align: center;
+}
+
 .mrf-device-name {
-  margin-bottom: 5px;
   font-weight: 500;
 }
 
 .mrf-device-value {
-  margin-left: 15px;
+  margin-left: 8px;
   color: #AAAAAA;
+}
+
+@media only screen and (max-width: 800px) {
+  .metrics-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

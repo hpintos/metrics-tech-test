@@ -6,7 +6,7 @@ export class MetricBuilder {
     }
 
     buildMetric(metric) {
-        const total = metric.devices.reduce((acc, d)=>{ return acc + d.value;}, 0);
+        const total = metric.devices.reduce((acc, device)=>{ return acc + device.value;}, 0);
         const colors = metric.options.colors;
         const localeStringOptions = metric.options.isCurrency ? {
             style: 'currency',
@@ -19,21 +19,19 @@ export class MetricBuilder {
         const devicesDataboxes = metric.devices.map((device, index)=>{
             const porcentage = Math.round(device.value * 100 / total ) + '%';
             return `
-            <div class="col-6 p-0 mrf-device">
+            <div class="metric-footer-col-${index % 2 === 0 ? 'left' : 'right'}">
                 <p class="mrf-device-name" style="color: ${colors[index]}">${device.name}</p>
                 <span>${porcentage}<span class="mrf-device-value">${Math.round(device.value).toLocaleString('es-ES', localeStringOptions)}</span></span>
             </div>`;
         });
 
         const newMetricContainer = document.createElement('div');
-        newMetricContainer.className = 'mrf-metric-container col-md';
+        newMetricContainer.className = 'metric-container';
         newMetricContainer.innerHTML = `
-            <div class="row">
-                <div class="col text-center">
-                    <div class="${chartSelector}"></div>
-                </div>
+            <div class="metric-header">
+                <div class="${chartSelector}"></div>
             </div>
-            <div class="row">
+            <div class="metric-footer">
                 ${devicesDataboxes.join('')}
             </div>
         `;
