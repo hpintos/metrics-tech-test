@@ -34,11 +34,11 @@
   text-align: center;
 }
 
-.mrf-device-name {
+.device-name {
   font-weight: 500;
 }
 
-.mrf-device-value {
+.device-value {
   margin-left: 8px;
   color: #AAAAAA;
 }

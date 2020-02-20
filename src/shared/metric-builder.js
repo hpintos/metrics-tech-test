@@ -20,8 +20,8 @@ export class MetricBuilder {
             const porcentage = Math.round(device.value * 100 / total ) + '%';
             return `
             <div class="metric-footer-col-${index % 2 === 0 ? 'left' : 'right'}">
-                <p class="mrf-device-name" style="color: ${colors[index]}">${device.name}</p>
-                <span>${porcentage}<span class="mrf-device-value">${Math.round(device.value).toLocaleString('es-ES', localeStringOptions)}</span></span>
+                <p class="device-name" style="color: ${colors[index]}">${device.name}</p>
+                <span>${porcentage}<span class="device-value">${Math.round(device.value).toLocaleString('es-ES', localeStringOptions)}</span></span>
             </div>`;
         });
 
